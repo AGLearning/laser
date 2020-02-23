@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "snapsvg": "0.5.1"
+    "eve": "~0.5.1",
+    "snapsvg-cjs": "0.0.6"
   }
 }

@@ -1,4 +1,6 @@
-import Snap = require('snapsvg');
+import "snapsvg-cjs";
+
+declare var Snap: any;
 
 export class SvgBuilder {
   private snap: any;
@@ -8,7 +10,7 @@ export class SvgBuilder {
    */
   constructor(width: number, height: number, unit: number) {
     this.snap = Snap(width * unit, height * unit);
-    this.snap.circle(10, 10, 20).attr({fill: "none", stroke: "#000", strokeWidth: 1});
+    this.snap.circle(150, 150, 100);
   }
 
   addPoints() {

@@ -8,4 +8,4 @@ import { SvgBuilder }  from "./svg-builder";
 const appDiv: HTMLElement = document.getElementById("app");
 appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 
-const svgBuilder = new SvgBuilder(10, 10, 1).addPoints();
+const svgBuilder = new SvgBuilder(100, 100, 1);
