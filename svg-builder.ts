@@ -30,11 +30,14 @@ export class SvgBuilder {
     return this;
   }
 
-  build() {
+  scale() {
     var bbox = this.snap.getBBox();
     var viewBox = bbox.x + " " + bbox.y + " " + bbox.width + " " + bbox.height;
     this.snap.attr({
-      viewBox: viewBox
+      width: 400,
+      height: 400,
+      preserveAspectRatio: true,
+      viewBox: '0 0 100 100'
     });
   }
 }
