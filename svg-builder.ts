@@ -1,26 +1,23 @@
 import "snapsvg-cjs";
 
 declare var Snap: any;
+import { Circle } from './model/circle';
 
 export class SvgBuilder {
   private snap: any;
 
-  /***
-   * unit - in mm (bok kratki)
-   */
-  constructor(
+    constructor(
     width: number,
-    height: number,
-    private unit: number,
-    private radius: number
+    height: number
   ) {
-    this.snap = Snap(width * unit, height * unit);
+    this.snap = Snap(width, height);
   }
 
-  addPoints(points: { x: number; y: number }[]) {
-    for (let point of points) {
+  addCircles(circles: Circle[]) {
+    for (let c of circles) {
+      console.log(c.x);
       this.snap
-        .circle(point.x * this.unit, point.y * this.unit, this.radius)
+        .circle(c.x, c.y, c.r)
         .attr({
           fill: "none",
           stroke: "#000",

@@ -1,5 +1,9 @@
+import { Circle } from "../model/circle";
+import { Grid } from "../model/grid";
+
 export class Heart {
-  getPoints() {
+  getCircles(options: { circleRadius?: number, gridSize?: number } = {}): Circle[] {
+    const gridSize = options.gridSize || Grid.defaultSize;
     return [
       [3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18],
       [2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17, 18, 19],
@@ -18,6 +22,6 @@ export class Heart {
       [8, 9, 10, 11, 12, 13],
       [9, 10, 11, 12],
       [10, 11]
-    ].flatMap((a, i) => a.map(x => ({ x: x, y: i })));
+    ].flatMap((a, i) => a.map(x => new Circle(x * gridSize, i * gridSize)));
   }
 }
