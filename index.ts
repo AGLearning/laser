@@ -3,8 +3,9 @@ import "./style.css";
 
 import { SvgBuilder } from "./svg-builder";
 import { Heart } from "./calculators/heart";
-import { CrochetCircle } from "./crochet-circle";
+import { CrochetCircle } from "./calculators/crochet-circle";
 import { circlesOnGrid } from "./calculators/circles-on-grid";
+import { circlesOnCircle } from "./calculators/circles-on-circle";
 
 //HEART
 const shape = new Heart();
@@ -16,3 +17,11 @@ const crochetCircle = new CrochetCircle().draw();
 const truck = new SvgBuilder(10 * 4, 8 * 4).addCircles(
   circlesOnGrid({ xCount: 8, yCount: 6 })
 );
+
+const crochetFlower1 = new SvgBuilder(2*40, 2*40).addCircles(
+  circlesOnCircle({ radius: 36, circlesNumber: 6, circleRadius: 12 })
+);
+const crochetFlower2 = new SvgBuilder(2*40, 2*40).addCircles(
+  circlesOnCircle({ radius: 12, circlesNumber: 18 })
+);
+
