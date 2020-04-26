@@ -2,7 +2,7 @@ import "snapsvg-cjs";
 
 declare var Snap: any;
 import { Circle } from "./model/circle";
-import { CrossStitch } from './model/cross-stitch';
+import { CrossStitch } from "./model/cross-stitch";
 
 export class SvgBuilder {
   private snap: any;
@@ -23,24 +23,74 @@ export class SvgBuilder {
     return this;
   }
 
-  addCrossStitches(stitches: CrossStitch[]) {
+  addCrossStitches(
+    stitches: CrossStitch[],
+    options: {
+      radius: number;
+      width: number;
+    } = {}
+  ) {
+    const radius = options.radius || CrossStitch.defaultRadius;
+    const width = options.width || CrossStitch.defaultWidth;
+    const gridSize = 3 * radius;
+    let minX = 0;
+    let maxX = 0;
+    let minY = 0;
+    let maxY = 0;
     for (let s of stitches) {
+      if (minX > s.x) {
+        minX = s.x;
+      }
+
+      if (maxX < s.x) {
+        maxX = s.x;
+      }
+
+      if (minY > s.y) {
+        minY = s.y;
+      }
+
+      if (maxY < s.y) {
+        maxY = s.y;
+      }
+
       this.snap
-        .line(s.x - s.radius, s.y - s.radius, s.x + s.radius, s.y + s.radius)
+        .line(
+          s.x * gridSize - radius,
+          s.y * gridSize - radius,
+          s.x * gridSize + radius,
+          s.y * gridSize + radius
+        )
         .attr({
           fill: "none",
           stroke: s.color,
-          strokeWidth: 5
+          strokeWidth: width
         });
 
       this.snap
-        .line(s.x - s.radius, s.y + s.radius, s.x + s.radius, s.y - s.radius)
+        .line(
+          s.x * gridSize - radius,
+          s.y * gridSize + radius,
+          s.x * gridSize + radius,
+          s.y * gridSize - radius
+        )
         .attr({
           fill: "none",
           stroke: s.color,
-          strokeWidth: 5
+          strokeWidth: width
         });
     }
+
+    for (let i = minX; i <= maxX; i = i + 1) {
+      this.snap
+        .line(i * gridSize - gridSize, 0, i * gridSize - gridSize, 100)
+        .attr({
+          fill: "none",
+          stroke: "#aaaaaa",
+          strokeWidth: 0.5
+        });
+    }
+
     return this;
   }
 

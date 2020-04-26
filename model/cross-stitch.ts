@@ -6,9 +6,7 @@ export class CrossStitch {
   constructor(
     public readonly x: number, 
     public readonly y: number, 
-    public readonly color: string,
-    public readonly radius: number = CrossStitch.defaultRadius,
-    public readonly width: number = CrossStitch.defaultWidth,
+    public readonly color: string
     ){
     };
 }

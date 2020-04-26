@@ -2,7 +2,6 @@
 import { CrossStitch } from '../model/cross-stitch';
 
 export const crossStitches = () => {
-    const gridSize = 15;
     return [
       [3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18],
       [2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17, 18, 19],
@@ -21,6 +20,6 @@ export const crossStitches = () => {
       [8, 9, 10, 11, 12, 13],
       [9, 10, 11, 12],
       [10, 11]
-    ].flatMap((a, i) => a.map(x => new CrossStitch(x * gridSize, i * gridSize, CrossStitch.red)));
+    ].flatMap((a, i) => a.map(x => new CrossStitch(x, i, CrossStitch.red)));
 
 };
