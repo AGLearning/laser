@@ -81,7 +81,7 @@ export class SvgBuilder {
         });
     }
 
-    for (let i = minX+1; i <= maxX + 1; i = i + 1) {
+    for (let i = minX + 1; i <= maxX + 1; i = i + 1) {
       this.snap
         .line(
           i * gridSize - radius - width / 2,
@@ -96,13 +96,13 @@ export class SvgBuilder {
         });
     }
 
-    for (let i = minY+1; i <= maxY + 1; i = i + 1) {
+    for (let i = minY + 1; i <= maxY + 1; i = i + 1) {
       this.snap
         .line(
           minX * gridSize - gridSize,
           i * gridSize - radius - width / 2,
           (maxX + 1) * gridSize,
-          i * gridSize - radius - width / 2,
+          i * gridSize - radius - width / 2
         )
         .attr({
           fill: "none",
