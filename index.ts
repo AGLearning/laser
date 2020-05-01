@@ -7,7 +7,7 @@ import { CrochetCircle } from "./calculators/crochet-circle";
 import { CrossStitch } from "./model/cross-stitch";
 import { circlesOnGrid } from "./calculators/circles-on-grid";
 import { circlesOnCircle } from "./calculators/circles-on-circle";
-import { crossStitches } from './calculators/cross-stitches';
+import * as crossStitches from './calculators/cross-stitches';
 
 //HEART
 const shape = new Heart();
@@ -26,7 +26,12 @@ const shape = new Heart();
 // const crochetFlower2 = new SvgBuilder(2*40, 2*40).addCircles(
 //   circlesOnCircle({ radius: 12, circlesNumber: 18 })
 // );
-const manyCrossStitches = new SvgBuilder(2*200, 2*200).addCrossStitches(
-  crossStitches()
+const heart = new SvgBuilder(2*100, 2*100).addCrossStitches(
+  crossStitches.heart()
 );
-
+const flower = new SvgBuilder(2*100, 2*100).addCrossStitches(
+  crossStitches.flower()
+);
+const umbrella = new SvgBuilder(2*150, 2*150).addCrossStitches(
+  crossStitches.umbrella()
+);
