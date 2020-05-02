@@ -1,5 +1,58 @@
 import { CrossStitch } from "../model/cross-stitch";
 
+export const christmastree = () => {
+  const green = [
+    [6],
+    [5,6,7],
+    [5,6,7],
+    [4,5,7,8],
+    [4,5,6,7],
+    [3,4,5,6,7,8,9],
+    [3,5,6,8,9],
+    [2,3,4,5,6,7,8,10],
+    [2,3,4,6,7,8,9,10],
+    [1,3,4,5,6,7,9,10,11],
+    [1,2,3,4,5,6,7,8,9,10,11],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.green))
+  );
+
+  const black = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [5,6,7],
+    [5,6,7]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.black))
+  );
+
+  const red = [
+    [],
+    [],
+    [],
+    [6],
+    [8],
+    [],
+    [4,7],
+    [9],
+    [5],
+    [2,8]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.red))
+  );
+
+  return green.concat(black).concat(red);
+};
+
 export const puchar = () => {
   const yellow = [
     [3, 4, 5, 6, 7, 8, 9, 10, 11],
