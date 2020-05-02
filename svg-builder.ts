@@ -33,10 +33,10 @@ export class SvgBuilder {
     const radius = options.radius || CrossStitch.defaultRadius;
     const width = options.width || CrossStitch.defaultWidth;
     const gridSize = 3 * radius;
-    let minX = 0;
-    let maxX = 0;
-    let minY = 0;
-    let maxY = 0;
+    let minX = 1;
+    let maxX = 1;
+    let minY = 1;
+    let maxY = 1;
     for (let s of stitches) {
       if (minX > s.x) {
         minX = s.x;
@@ -81,7 +81,7 @@ export class SvgBuilder {
         });
     }
 
-    for (let i = minX + 1; i <= maxX + 1; i = i + 1) {
+    for (let i = minX; i <= maxX+1; i = i + 1) {
       this.snap
         .line(
           i * gridSize - radius - width / 2,
@@ -91,12 +91,12 @@ export class SvgBuilder {
         )
         .attr({
           fill: "none",
-          stroke: "#aaaaaa",
+          stroke: "#888888",
           strokeWidth: 0.5
         });
     }
 
-    for (let i = minY + 1; i <= maxY + 1; i = i + 1) {
+    for (let i = minY; i <= maxY + 1; i = i + 1) {
       this.snap
         .line(
           minX * gridSize - gridSize,
@@ -106,7 +106,7 @@ export class SvgBuilder {
         )
         .attr({
           fill: "none",
-          stroke: "#aaaaaa",
+          stroke: "#888888",
           strokeWidth: 0.5
         });
     }
