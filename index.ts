@@ -27,7 +27,15 @@ const shape = new Heart();
 //   circlesOnCircle({ radius: 12, circlesNumber: 18 })
 // );
 
-
+new SvgBuilder(2*120, 2*120).addCrossStitches(
+  crossStitches.hourglass()
+);
+new SvgBuilder(2*120, 2*120).addCrossStitches(
+  crossStitches.egg()
+);
+new SvgBuilder(2*120, 2*120).addCrossStitches(
+  crossStitches.flag()
+);
 new SvgBuilder(2*120, 2*120).addCrossStitches(
   crossStitches.christmastree()
 );

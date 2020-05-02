@@ -1,5 +1,115 @@
 import { CrossStitch } from "../model/cross-stitch";
 
+export const hourglass = () => {
+  const yellow = [
+    [],
+    [],
+    [],
+    [4,5,6],
+    [4,5,6],
+    [4,5,6],
+    [],
+    [],
+    [],
+    [],
+    [5],
+    [3,4,5,6,7]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.yellow))
+  );
+
+  const black = [
+    [1,2,3,4,5,6,7,8,9],
+    [2,8],
+    [2,8],
+    [3,7],
+    [3,7],
+    [4,6],
+    [5],
+    [4,6],
+    [3,7],
+    [3,7],
+    [2,8],
+    [2,8],
+    [1,2,3,4,5,6,7,8,9],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.black))
+  );
+
+  return yellow.concat(black);
+};
+
+export const egg = () => {
+  const yellow = [
+    [4,5],
+    [3,4,5,6],
+    [2,3,4,5,6,7],
+    [2,3,4,5,6,7],
+    [1,2,3,4,5,6,7,8],
+    [1,2,3,4,5,6,7,8],
+    [1,2,3,4,5,6,7,8],
+    [1,2,3,4,5,6,7,8],
+    [1,2,3,4,5,6,7,8],
+    [2,3,4,5,6,7],
+    [3,4,5,6],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.yellow))
+  );
+
+  const red = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [1,2,3,4,5,6,7,8],
+    [],
+    [1,2,3,4,5,6,7,8],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.red))
+  );
+
+  return yellow.concat(red);
+};
+
+export const flag = () => {
+  const white = [
+    [],
+    [2,3,4,5,6,7,8,9,10],
+    [2,3,4,5,6,7,8,9,10],
+    [2,3,4,5,6,7,8,9,10]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.white))
+  );
+
+  const black = [
+    [1,2,3,4,5,6,7,8,9,10,11],
+    [1,11],
+    [1,11],
+    [1,11],
+    [1,11],
+    [1,11],
+    [1,11],
+    [1,2,3,4,5,6,7,8,9,10,11],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.black))
+  );
+
+  const red = [
+    [],
+    [],
+    [],
+    [],
+    [2,3,4,5,6,7,8,9,10],
+    [2,3,4,5,6,7,8,9,10],
+    [2,3,4,5,6,7,8,9,10],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.red))
+  );
+
+  return white.concat(black).concat(red);
+};
+
 export const christmastree = () => {
   const green = [
     [6],
