@@ -1,5 +1,37 @@
 import { CrossStitch } from "../model/cross-stitch";
 
+export const puchar = () => {
+  const yellow = [
+    [3, 4, 5, 6, 7, 8, 9, 10, 11],
+    [3, 4, 5, 6, 7, 8, 9, 10, 11],
+    [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13],
+    [1, 3, 4, 5, 6, 8, 9, 10, 11, 13],
+    [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13],
+    [3, 4, 5, 6, 8, 9, 10, 11],
+    [4, 5, 6, 7, 8, 9, 10],
+    [5, 6, 7, 8, 9],
+    [6, 7, 8],
+    [6, 7, 8],
+    [6, 7, 8],
+    [5, 6, 7, 8, 9]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.yellow))
+  );
+
+  const black = [
+    [],
+    [],
+    [7],
+    [7],
+    [7],
+    [7],
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.black))
+  );
+
+  return yellow.concat(black);
+};
+
 export const heart = () => {
   return [
     [3, 4, 5, 9, 10, 11],
@@ -115,15 +147,14 @@ export const face = () => {
     [3, 4, 5, 7, 8, 9]
   ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.black)));
 
-  const blue = [
-    [],
-    [],
-    [],
-    [],
-    [4,8]
-  ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.blue)));
+  const blue = [[], [], [], [], [4, 8]].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.blue))
+  );
 
-  return red.concat(yellow).concat(black).concat(blue);
+  return red
+    .concat(yellow)
+    .concat(black)
+    .concat(blue);
 };
 
 export const ladybug = () => {
@@ -131,33 +162,111 @@ export const ladybug = () => {
     [],
     [],
     [],
-    [4,5,6,7,8,9],
-    [3,4,5,8,9,10],
-    [2,3,4,5,8,9,10,11],
-    [2,4,5,6,7,8,9,11],
-    [1,2,3,4,5,6,7,8,9,10,11,12],
-    [1,2,3,6,7,10,11,12],
-    [1,2,3,6,7,10,11,12],
-    [2,3,4,5,6,7,8,9,10,11],
-    [2,4,5,6,7,8,9,11],
-    [3,4,5,6,7,8,9,10],
-    [4,5,6,7,8,9],    
+    [4, 5, 6, 7, 8, 9],
+    [3, 4, 5, 8, 9, 10],
+    [2, 3, 4, 5, 8, 9, 10, 11],
+    [2, 4, 5, 6, 7, 8, 9, 11],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    [1, 2, 3, 6, 7, 10, 11, 12],
+    [1, 2, 3, 6, 7, 10, 11, 12],
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    [2, 4, 5, 6, 7, 8, 9, 11],
+    [3, 4, 5, 6, 7, 8, 9, 10],
+    [4, 5, 6, 7, 8, 9]
   ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.red)));
 
   const black = [
-    [6,7],
-    [5,6,7,8],
-    [4,5,6,7,8,9],
+    [6, 7],
+    [5, 6, 7, 8],
+    [4, 5, 6, 7, 8, 9],
     [],
-    [6,7],
-    [6,7],
-    [3,10],
+    [6, 7],
+    [6, 7],
+    [3, 10],
     [],
-    [4,5,8,9],
-    [4,5,8,9],
+    [4, 5, 8, 9],
+    [4, 5, 8, 9],
     [],
-    [3,10]
+    [3, 10]
   ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.black)));
 
   return red.concat(black);
+};
+
+export const rubik = () => {
+  const red = [
+    [],
+    [2, 3, 4],
+    [2, 3, 4],
+    [2, 3, 4],
+    [],
+    [6, 7, 8],
+    [6, 7, 8],
+    [6, 7, 8],
+    [],
+    [10, 11, 12],
+    [10, 11, 12],
+    [10, 11, 12]
+  ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.red)));
+
+  const yellow = [
+    [],
+    [6, 7, 8],
+    [6, 7, 8],
+    [6, 7, 8],
+    [],
+    [10, 11, 12],
+    [10, 11, 12],
+    [10, 11, 12]
+  ].flatMap((a, i) =>
+    a.map(x => new CrossStitch(x, i + 1, CrossStitch.yellow))
+  );
+
+  const blue = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [2, 3, 4, 6, 7, 8],
+    [2, 3, 4, 6, 7, 8],
+    [2, 3, 4, 6, 7, 8]
+  ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.blue)));
+
+  const green = [
+    [],
+    [10, 11, 12],
+    [10, 11, 12],
+    [10, 11, 12],
+    [],
+    [2, 3, 4],
+    [2, 3, 4],
+    [2, 3, 4]
+  ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.green)));
+
+  const black = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 5, 9, 13],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  ].flatMap((a, i) => a.map(x => new CrossStitch(x, i + 1, CrossStitch.black)));
+
+  return red
+    .concat(black)
+    .concat(yellow)
+    .concat(blue)
+    .concat(green);
 };

@@ -26,6 +26,10 @@ const shape = new Heart();
 // const crochetFlower2 = new SvgBuilder(2*40, 2*40).addCircles(
 //   circlesOnCircle({ radius: 12, circlesNumber: 18 })
 // );
+
+new SvgBuilder(2*100, 2*100).addCrossStitches(
+  crossStitches.puchar()
+);
 new SvgBuilder(2*100, 2*100).addCrossStitches(
   crossStitches.heart()
 );
@@ -40,4 +44,7 @@ new SvgBuilder(2*100, 2*100).addCrossStitches(
 );
 new SvgBuilder(2*120, 2*120).addCrossStitches(
   crossStitches.ladybug()
+);
+new SvgBuilder(2*120, 2*120).addCrossStitches(
+  crossStitches.rubik()
 );

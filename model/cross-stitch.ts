@@ -5,6 +5,7 @@ export class CrossStitch {
   static blue: string = '#00bfff';
   static yellow: string = '#ffff00';
   static black: string = '#000000';
+  static green: string = '#008000';
 
   constructor(
     public readonly x: number, 
